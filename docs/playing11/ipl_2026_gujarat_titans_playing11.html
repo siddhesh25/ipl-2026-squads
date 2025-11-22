@@ -94,12 +94,7 @@
     .player-select option {
       color: #000000;
     }
-    .helper-text {
-      margin-top: 4px;
-      font-size: 0.8rem;
-      opacity: 0.76;
-      text-align: center;
-    }
+    
     .back-link {
       margin-top: 4px;
       text-align: center;
@@ -113,26 +108,8 @@
     .back-link a:hover {
       text-decoration: underline;
     }
-    .overview-btn {
-      position: fixed;
-      left: 24px;
-      bottom: 8px;
-      background: transparent;
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      border: 1px solid #fdd835;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      backdrop-filter: blur(10px);
-    }
-    .overview-btn span.icon { font-size: 0.95rem; }
+    
+    
     .overview-btn:hover { background: rgba(0,0,0,0.3); }
   
     .team-header {
@@ -194,31 +171,80 @@
 
   
 
-    .released-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 6px 11px;
-      font-size: 0.78rem;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: linear-gradient(135deg, rgba(13, 71, 161, 0.9), rgba(103, 58, 183, 0.92));
-      color: #ffffff;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 6px 18px rgba(0, 0, 0, 0.55);
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
-      margin-top: 6px;
-    }
-    .released-btn .icon {
-      font-size: 0.9rem;
-    }
+    
+    
+    
     .released-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
-      background: linear-gradient(135deg, rgba(21, 101, 192, 0.96), rgba(126, 87, 194, 0.97));
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.98), rgba(126, 87, 194, 0.98));
     }
-</style>
+
+    
+    
+    
+    .ai-link-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.75);
+    }
+
+    @media (max-width: 640px) {
+      
+    }
+ 
+    
+    
+    .top-btn:hover, .overview-btn:hover{
+        background:rgba(0,0,0,0.75);
+    }
+     
+    
+    
+    .bottom-btn:hover {
+        background:rgba(255,211,77,0.15);
+    }
+    
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px 10px 12px;
+      box-sizing: border-box;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .bottom-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #ffffff;
+      border: 1px solid #ffd34d;
+      background: transparent;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+    }
+    .bottom-btn:hover {
+      background: rgba(255, 211, 77, 0.18);
+      box-shadow: 0 0 0 1px rgba(255,211,77,0.18), 0 8px 20px rgba(0,0,0,0.6);
+      transform: translateY(-1px);
+    }
+    .bottom-btn.overview-btn {
+      margin-right: auto;
+    }
+    .bottom-btn.ai-btn {
+      margin: 0 auto;
+    }
+    .bottom-btn.released-btn {
+      margin-left: auto;
+    }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -530,21 +556,14 @@
 </select>
 </div>
 </div>
-<div class="helper-text">
-      Select your final Playing XI and an Impact Player (12th). Once a player is chosen for one position,
-      they will be unavailable in the other dropdowns.
-    </div>
 <div class="reset-row">
 <button class="reset-btn" type="button">Reset selections</button>
 </div>
 <div class="back-link">
 <a href="../squads/ipl_2026_gujarat_titans.html">← Back to full squad</a>
 </div>
-</div>
-<a class="overview-btn" href="../">
-<span class="icon">🏠</span>
-<span>Back to Overview</span>
-</a>
+
+<div class="bottom-bar"><a class="bottom-btn overview-btn" href="../">🏠 Overview</a><a class="bottom-btn ai-btn" href="../predictions/ipl_2026_gujarat_titans_prediction.html">🤖 AI Prediction</a><a class="bottom-btn released-btn" href="../released_players.html">🔁 Released Players</a></div></div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const selects = Array.from(document.querySelectorAll(".player-select"));
@@ -635,5 +654,5 @@
       }
     });
   </script>
-<a class="released-btn" href="../released_players.html"><span class="icon">🔁</span><span>Released players list</span></a></body>
+</body>
 </html>
