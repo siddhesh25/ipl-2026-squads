@@ -170,6 +170,27 @@
     .team-logo-rajasthan-royals      { background: radial-gradient(circle at 30% 20%, #ff80ab 0, #c2185b 55%, #311b92 100%); }
     .team-logo-sunrisers-hyderabad   { background: radial-gradient(circle at 30% 20%, #ffe082 0, #ff9800 55%, #e65100 100%); color:#3e2723; }
 
+  
+    .reset-row {
+      margin-top: 16px;
+      text-align: center;
+    }
+    .reset-btn {
+      margin-top: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.35);
+      color: #ffffff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .reset-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
   </style>
 </head>
 <body>
@@ -447,12 +468,59 @@
         });
       }
 
+      const STORAGE_KEY = "ipl2026_playing11_" + (window.location.pathname.split("/").pop() || "");
+
+      function saveState() {
+        const values = selects.map(s => s.value || "");
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const values = JSON.parse(raw);
+          if (!Array.isArray(values)) return;
+          selects.forEach((select, idx) => {
+            if (values[idx]) {
+              select.value = values[idx];
+            }
+          });
+        } catch (e) {
+          // ignore
+        }
+      }
+
+      // Load any saved state before binding listeners
+      loadState();
+      refreshOptions();
+      markSelected();
+
       selects.forEach(select => {
         select.addEventListener("change", () => {
           refreshOptions();
           markSelected();
+          saveState();
         });
       });
+
+      const resetBtn = document.querySelector(".reset-btn");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          selects.forEach(select => {
+            select.value = "";
+          });
+          try {
+            localStorage.removeItem(STORAGE_KEY);
+          } catch (e) {}
+          refreshOptions();
+          markSelected();
+        });
+      }
 
       // Initial pass
       markSelected();
