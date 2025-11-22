@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Playing 11 - Lucknow Super Giants</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Playing 11 - Lucknow Super Giants</title>
+<style>
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -191,322 +192,348 @@
       background: rgba(255, 255, 255, 0.12);
     }
 
-  </style>
+  
+
+    .released-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, rgba(13, 71, 161, 0.9), rgba(103, 58, 183, 0.92));
+      color: #ffffff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 6px 18px rgba(0, 0, 0, 0.55);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+      margin-top: 6px;
+    }
+    .released-btn .icon {
+      font-size: 0.9rem;
+    }
+    .released-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.96), rgba(126, 87, 194, 0.97));
+    }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Playing 11</h1>
-    <div class="subtitle">Match line-up sheet</div>
-    <div class="team-header">
-      <div class="team-logo team-logo-lucknow-super-giants"><span>LSG</span></div>
-      <div class="team-name">Team name – <span>Lucknow Super Giants</span></div>
-    </div>
-    <div class="playing-list">
-      <div class="playing-row">
-        <div class="playing-row-label">1.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">2.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">3.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">4.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">5.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">6.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">7.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">8.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">9.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">10.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">11.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">12. (Impact)</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Abdul Samad">Abdul Samad</option>
-          <option value="Ayush Badoni">Ayush Badoni</option>
-          <option value="Aiden Markram">Aiden Markram</option>
-          <option value="Matthew Breetzke">Matthew Breetzke</option>
-          <option value="Himmat Singh">Himmat Singh</option>
-          <option value="Prince Yadav">Prince Yadav</option>
-          <option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
-          <option value="Nicholas Pooran">Nicholas Pooran</option>
-          <option value="Mitchell Marsh">Mitchell Marsh</option>
-          <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
-          <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-          <option value="M Siddharth">M Siddharth</option>
-          <option value="Mayank Yadav">Mayank Yadav</option>
-          <option value="Avesh Khan">Avesh Khan</option>
-          <option value="Mohsin Khan">Mohsin Khan</option>
-          <option value="Akash Singh">Akash Singh</option>
-          <option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-          <option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-        </select>
-      </div>
-    </div>
-    <div class="helper-text">
+<div class="container">
+<h1>Playing 11</h1>
+<div class="subtitle">Match line-up sheet</div>
+<div class="team-header">
+<div class="team-logo team-logo-lucknow-super-giants"><span>LSG</span></div>
+<div class="team-name">Team name – <span>Lucknow Super Giants</span></div>
+</div>
+<div class="playing-list">
+<div class="playing-row">
+<div class="playing-row-label">1.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">2.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">3.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">4.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">5.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">6.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">7.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">8.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">9.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">10.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">11.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">12. (Impact)</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Abdul Samad">Abdul Samad</option>
+<option value="Ayush Badoni">Ayush Badoni</option>
+<option value="Aiden Markram">Aiden Markram</option>
+<option value="Matthew Breetzke">Matthew Breetzke</option>
+<option value="Himmat Singh">Himmat Singh</option>
+<option value="Prince Yadav">Prince Yadav</option>
+<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Nicholas Pooran">Nicholas Pooran</option>
+<option value="Mitchell Marsh">Mitchell Marsh</option>
+<option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
+<option value="Arshin Kulkarni">Arshin Kulkarni</option>
+<option value="M Siddharth">M Siddharth</option>
+<option value="Mayank Yadav">Mayank Yadav</option>
+<option value="Avesh Khan">Avesh Khan</option>
+<option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Akash Singh">Akash Singh</option>
+<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
+<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
+</select>
+</div>
+</div>
+<div class="helper-text">
       Select your final Playing XI and an Impact Player (12th). Once a player is chosen for one position,
       they will be unavailable in the other dropdowns.
     </div>
-    <div class="reset-row">
-      <button type="button" class="reset-btn">Reset selections</button>
-    </div>
-    <div class="back-link">
-      <a href="../squads/ipl_2026_lucknow_super_giants.html">&larr; Back to full squad</a>
-    </div>
-  </div>
-  <a href="../" class="overview-btn">
-    <span class="icon">🏠</span>
-    <span>Back to Overview</span>
-  </a>
-  <script>
+<div class="reset-row">
+<button class="reset-btn" type="button">Reset selections</button>
+</div>
+<div class="back-link">
+<a href="../squads/ipl_2026_lucknow_super_giants.html">← Back to full squad</a>
+</div>
+</div>
+<a class="overview-btn" href="../">
+<span class="icon">🏠</span>
+<span>Back to Overview</span>
+</a>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
       const selects = Array.from(document.querySelectorAll(".player-select"));
 
@@ -596,5 +623,5 @@
       }
     });
   </script>
-</body>
+<a class="released-btn" href="../released_players.html"><span class="icon">🔁</span><span>Released players list</span></a></body>
 </html>

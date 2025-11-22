@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Playing 11 - Punjab Kings</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Playing 11 - Punjab Kings</title>
+<style>
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -191,298 +192,324 @@
       background: rgba(255, 255, 255, 0.12);
     }
 
-  </style>
+  
+
+    .released-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 0.78rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, rgba(13, 71, 161, 0.9), rgba(103, 58, 183, 0.92));
+      color: #ffffff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 6px 18px rgba(0, 0, 0, 0.55);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+      margin-top: 6px;
+    }
+    .released-btn .icon {
+      font-size: 0.9rem;
+    }
+    .released-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.96), rgba(126, 87, 194, 0.97));
+    }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Playing 11</h1>
-    <div class="subtitle">Match line-up sheet</div>
-    <div class="team-header">
-      <div class="team-logo team-logo-punjab-kings"><span>PBKS</span></div>
-      <div class="team-name">Team name – <span>Punjab Kings</span></div>
-    </div>
-    <div class="playing-list">
-      <div class="playing-row">
-        <div class="playing-row-label">1.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">2.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">3.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">4.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">5.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">6.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">7.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">8.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">9.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">10.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">11.</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-      <div class="playing-row">
-        <div class="playing-row-label">12. (Impact)</div>
-        <select class="player-select">
-          <option value="">Select player…</option>
-          <option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
-          <option value="Nehal Wadhera">Nehal Wadhera</option>
-          <option value="Priyansh Arya">Priyansh Arya</option>
-          <option value="Shashank Singh">Shashank Singh</option>
-          <option value="Prabhsimran Singh">Prabhsimran Singh</option>
-          <option value="Vishnu Vinod">Vishnu Vinod</option>
-          <option value="Marcus Stoinis">Marcus Stoinis</option>
-          <option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
-          <option value="Suryansh Shedge">Suryansh Shedge</option>
-          <option value="Harpreet Brar">Harpreet Brar</option>
-          <option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
-          <option value="Arshdeep Singh">Arshdeep Singh</option>
-          <option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
-          <option value="Yash Thakur">Yash Thakur</option>
-          <option value="Xavier Bartlett">Xavier Bartlett</option>
-          <option value="Lockie Ferguson">Lockie Ferguson</option>
-        </select>
-      </div>
-    </div>
-    <div class="helper-text">
+<div class="container">
+<h1>Playing 11</h1>
+<div class="subtitle">Match line-up sheet</div>
+<div class="team-header">
+<div class="team-logo team-logo-punjab-kings"><span>PBKS</span></div>
+<div class="team-name">Team name – <span>Punjab Kings</span></div>
+</div>
+<div class="playing-list">
+<div class="playing-row">
+<div class="playing-row-label">1.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">2.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">3.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">4.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">5.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">6.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">7.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">8.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">9.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">10.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">11.</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+<div class="playing-row">
+<div class="playing-row-label">12. (Impact)</div>
+<select class="player-select">
+<option value="">Select player…</option>
+<option value="Shreyas Iyer (c)">Shreyas Iyer (c)</option>
+<option value="Nehal Wadhera">Nehal Wadhera</option>
+<option value="Priyansh Arya">Priyansh Arya</option>
+<option value="Shashank Singh">Shashank Singh</option>
+<option value="Prabhsimran Singh">Prabhsimran Singh</option>
+<option value="Vishnu Vinod">Vishnu Vinod</option>
+<option value="Marcus Stoinis">Marcus Stoinis</option>
+<option value="Azmatullah Omarzai">Azmatullah Omarzai</option>
+<option value="Suryansh Shedge">Suryansh Shedge</option>
+<option value="Harpreet Brar">Harpreet Brar</option>
+<option value="Yuzvendra Chahal">Yuzvendra Chahal</option>
+<option value="Arshdeep Singh">Arshdeep Singh</option>
+<option value="Vijaykumar Vyshak">Vijaykumar Vyshak</option>
+<option value="Yash Thakur">Yash Thakur</option>
+<option value="Xavier Bartlett">Xavier Bartlett</option>
+<option value="Lockie Ferguson">Lockie Ferguson</option>
+</select>
+</div>
+</div>
+<div class="helper-text">
       Select your final Playing XI and an Impact Player (12th). Once a player is chosen for one position,
       they will be unavailable in the other dropdowns.
     </div>
-    <div class="reset-row">
-      <button type="button" class="reset-btn">Reset selections</button>
-    </div>
-    <div class="back-link">
-      <a href="../squads/ipl_2026_punjab_kings.html">&larr; Back to full squad</a>
-    </div>
-  </div>
-  <a href="../" class="overview-btn">
-    <span class="icon">🏠</span>
-    <span>Back to Overview</span>
-  </a>
-  <script>
+<div class="reset-row">
+<button class="reset-btn" type="button">Reset selections</button>
+</div>
+<div class="back-link">
+<a href="../squads/ipl_2026_punjab_kings.html">← Back to full squad</a>
+</div>
+</div>
+<a class="overview-btn" href="../">
+<span class="icon">🏠</span>
+<span>Back to Overview</span>
+</a>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
       const selects = Array.from(document.querySelectorAll(".player-select"));
 
@@ -572,5 +599,5 @@
       }
     });
   </script>
-</body>
+<a class="released-btn" href="../released_players.html"><span class="icon">🔁</span><span>Released players list</span></a></body>
 </html>
