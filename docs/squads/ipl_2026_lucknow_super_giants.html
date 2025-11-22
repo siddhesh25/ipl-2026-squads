@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IPL 2026 Retentions - Lucknow Super Giants</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top left, #b3e5fc 0, #03a9f4 55%, #004d40 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      background: linear-gradient(145deg, rgba(0, 172, 193, 0.98), rgba(38, 166, 154, 0.98));
+      border-radius: 24px;
+      padding: 28px 32px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 1.9rem;
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    .team-meta {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .team-meta-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.25);
+    }
+    .team-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    .team-name span {
+      color: #ff9800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.86rem;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .color-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-green { background-color: #4caf50; }
+    .dot-red { background-color: #f44336; }
+    .dot-orange { background-color: #ff9800; }
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .section-card {
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .player-list {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9rem;
+    }
+    .player-name {
+      padding: 3px 6px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .player-name.traded-in { color: #4caf50; }
+    .player-name.released { color: #f44336; }
+    .player-name.traded-out { color: #ff9800; }
+    .floating-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: #ff9800;
+      color: #000814;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .floating-btn span.icon { font-size: 1rem; }
+    .floating-btn:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    .overview-btn {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      background: transparent;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #ff9800;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+    .overview-btn span.icon { font-size: 0.95rem; }
+    .overview-btn:hover { background: rgba(0,0,0,0.3); }
+  
+    .team-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .team-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+    }
+    .team-logo span {
+      transform: translateY(1px);
+    }
+    .team-logo-mi        { background: radial-gradient(circle at 30% 20%, #ffd34d 0, #0052cc 55%, #001639 100%); }
+    .team-logo-chennai-super-kings       { background: radial-gradient(circle at 30% 20%, #fff59d 0, #ffb300 55%, #f57c00 100%); color:#102027; }
+    .team-logo-royal-challengers-bengaluru       { background: radial-gradient(circle at 30% 20%, #ffe082 0, #b71c1c 55%, #3e0000 100%); }
+    .team-logo-kolkata-knight-riders { background: radial-gradient(circle at 30% 20%, #ffd54f 0, #673ab7 55%, #311b92 100%); }
+    .team-logo-delhi-capitals        { background: radial-gradient(circle at 30% 20%, #ff8a80 0, #1e88e5 55%, #0d47a1 100%); }
+    .team-logo-gujarat-titans        { background: radial-gradient(circle at 30% 20%, #ffc107 0, #263238 55%, #000a12 100%); }
+    .team-logo-lucknow-super-giants  { background: radial-gradient(circle at 30% 20%, #ffecb3 0, #039be5 55%, #004d40 100%); }
+    .team-logo-punjab-kings          { background: radial-gradient(circle at 30% 20%, #ffe082 0, #c62828 55%, #4a0000 100%); }
+    .team-logo-rajasthan-royals      { background: radial-gradient(circle at 30% 20%, #ff80ab 0, #c2185b 55%, #311b92 100%); }
+    .team-logo-sunrisers-hyderabad   { background: radial-gradient(circle at 30% 20%, #ffe082 0, #ff9800 55%, #e65100 100%); color:#3e2723; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>IPL 2026 Retentions, Releases &amp; Trades</h1>
+    <div class="subtitle">Squad overview</div>
+    <div class="team-meta">
+      <div class="team-meta-pill">Purse remaining: ₹22.95 Cr</div>
+    </div>
+    <div class="team-header">
+      <div class="team-logo team-logo-lucknow-super-giants"><span>LSG</span></div>
+      <div class="team-name">Team name – <span>Lucknow Super Giants</span></div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <span class="color-dot dot-green"></span> Traded in (T)
+      </div>
+      <div class="legend-item">
+        <span class="color-dot dot-red"></span> Released
+      </div>
+      <div class="legend-item">
+        <span class="color-dot dot-orange"></span> Traded out
+      </div>
+    </div>
+    <div class="sections-grid">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Batters</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name">Abdul Samad</div>
+        <div class="player-name">Ayush Badoni</div>
+        <div class="player-name">Aiden Markram ✈️</div>
+        <div class="player-name">Matthew Breetzke ✈️</div>
+        <div class="player-name">Himmat Singh</div>
+        <div class="player-name">Prince Yadav</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Keepers</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name">Rishabh Pant (C)</div>
+        <div class="player-name">Nicholas Pooran ✈️</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">All rounders</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name">Mitchell Marsh ✈️</div>
+        <div class="player-name">Shahbaz Ahmed</div>
+        <div class="player-name">Arshin Kulkarni</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Spinners</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name">M Siddharth</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Fast bowlers</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name">Mayank Yadav</div>
+        <div class="player-name">Avesh Khan</div>
+        <div class="player-name">Mohsin Khan</div>
+        <div class="player-name">Akash Singh</div>
+        <div class="player-name traded-in">Mohammed Shami (T)</div>
+        <div class="player-name traded-in">Arjun Tendulkar (T)</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Released</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name released">Ravi Bishnoi</div>
+        <div class="player-name released">David Miller</div>
+        <div class="player-name released">Akash Deep</div>
+        <div class="player-name released">Aryan Juyal</div>
+        <div class="player-name released">Yuvraj Chaudhary</div>
+        <div class="player-name released">Rajvardhan Hangargekar</div>
+      </div>
+      </div>
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">Traded out</div>
+        </div>
+      <div class="player-list">
+        <div class="player-name traded-out">Shardul Thakur → MI</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <a href="../playing11/ipl_2026_lucknow_super_giants_playing11.html" class="floating-btn">
+    <span>Playing 11</span>
+    <span class="icon">▶</span>
+  </a>
+  <a href="../ipl_2026_overview.html" class="overview-btn">
+    <span class="icon">🏠</span>
+    <span>Back to Overview</span>
+  </a>
+</body>
+</html>

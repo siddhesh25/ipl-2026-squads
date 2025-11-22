@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Playing 11 - Sunrisers Hyderabad</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top left, #ff9800 0, #e65100 55%, #2b0000 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 700px;
+      width: 100%;
+      background: linear-gradient(145deg, rgba(245, 124, 0, 0.98), rgba(255, 152, 0, 0.98));
+      border-radius: 24px;
+      padding: 28px 32px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+    }
+    h1 {
+      margin: 0 0 4px;
+      font-size: 1.9rem;
+      text-align: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    .team-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+    .team-name span {
+      color: #ffe082;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .playing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .playing-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+    .playing-row-label {
+      font-weight: 600;
+      text-align: right;
+      padding-right: 4px;
+      opacity: 0.9;
+      font-size: 0.9rem;
+    }
+    .player-select {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      padding: 8px 10px;
+      background: rgba(3, 16, 46, 0.9);
+      font-size: 0.9rem;
+      line-height: 1.3;
+      font-family: inherit;
+      outline: none;
+      color: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+    }
+    
+    .player-select.selected {
+      border: 2px solid #ffd700;
+      background: radial-gradient(circle at 0 0, rgba(255,215,0,0.28) 0, rgba(3,16,46,0.9) 40%, rgba(0,0,0,0.95) 100%);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+      transition: all 0.18s ease-out;
+    }
+    
+    .player-select option {
+      color: #000000;
+    }
+    .helper-text {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      opacity: 0.76;
+      text-align: center;
+    }
+    .back-link {
+      margin-top: 18px;
+      text-align: center;
+    }
+    .back-link a {
+      color: #ffe082;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    .overview-btn {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      background: transparent;
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #ffe082;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+    .overview-btn span.icon { font-size: 0.95rem; }
+    .overview-btn:hover { background: rgba(0,0,0,0.3); }
+  
+    .team-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .team-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+    }
+    .team-logo span {
+      transform: translateY(1px);
+    }
+    .team-logo-mi        { background: radial-gradient(circle at 30% 20%, #ffd34d 0, #0052cc 55%, #001639 100%); }
+    .team-logo-chennai-super-kings       { background: radial-gradient(circle at 30% 20%, #fff59d 0, #ffb300 55%, #f57c00 100%); color:#102027; }
+    .team-logo-royal-challengers-bengaluru       { background: radial-gradient(circle at 30% 20%, #ffe082 0, #b71c1c 55%, #3e0000 100%); }
+    .team-logo-kolkata-knight-riders { background: radial-gradient(circle at 30% 20%, #ffd54f 0, #673ab7 55%, #311b92 100%); }
+    .team-logo-delhi-capitals        { background: radial-gradient(circle at 30% 20%, #ff8a80 0, #1e88e5 55%, #0d47a1 100%); }
+    .team-logo-gujarat-titans        { background: radial-gradient(circle at 30% 20%, #ffc107 0, #263238 55%, #000a12 100%); }
+    .team-logo-lucknow-super-giants  { background: radial-gradient(circle at 30% 20%, #ffecb3 0, #039be5 55%, #004d40 100%); }
+    .team-logo-punjab-kings          { background: radial-gradient(circle at 30% 20%, #ffe082 0, #c62828 55%, #4a0000 100%); }
+    .team-logo-rajasthan-royals      { background: radial-gradient(circle at 30% 20%, #ff80ab 0, #c2185b 55%, #311b92 100%); }
+    .team-logo-sunrisers-hyderabad   { background: radial-gradient(circle at 30% 20%, #ffe082 0, #ff9800 55%, #e65100 100%); color:#3e2723; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Playing 11</h1>
+    <div class="subtitle">Match line-up sheet</div>
+    <div class="team-header">
+      <div class="team-logo team-logo-sunrisers-hyderabad"><span>SRH</span></div>
+      <div class="team-name">Team name – <span>Sunrisers Hyderabad</span></div>
+    </div>
+    <div class="playing-list">
+      <div class="playing-row">
+        <div class="playing-row-label">1.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">2.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">3.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">4.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">5.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">6.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">7.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">8.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">9.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">10.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">11.</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+      <div class="playing-row">
+        <div class="playing-row-label">12. (Impact)</div>
+        <select class="player-select">
+          <option value="">Select player…</option>
+          <option value="Travis Head">Travis Head</option>
+          <option value="Abhishek Sharma">Abhishek Sharma</option>
+          <option value="Aniket Verma">Aniket Verma</option>
+          <option value="B Smaran">B Smaran</option>
+          <option value="Ishan Kishan">Ishan Kishan</option>
+          <option value="Heinrich Klaasen">Heinrich Klaasen</option>
+          <option value="Nitish Kumar Reddy">Nitish Kumar Reddy</option>
+          <option value="Harsh Dubey">Harsh Dubey</option>
+          <option value="Kamindu Mendis">Kamindu Mendis</option>
+          <option value="Zeeshan Ansari">Zeeshan Ansari</option>
+          <option value="Harshal Patel">Harshal Patel</option>
+          <option value="Brydon Carse">Brydon Carse</option>
+          <option value="Pat Cummins">Pat Cummins</option>
+          <option value="Jaydev Unadkat">Jaydev Unadkat</option>
+          <option value="Eshan Malinga">Eshan Malinga</option>
+        </select>
+      </div>
+    </div>
+    <div class="helper-text">
+      Select your final Playing XI and an Impact Player (12th). Once a player is chosen for one position,
+      they will be unavailable in the other dropdowns.
+    </div>
+    <div class="back-link">
+      <a href="../squads/ipl_2026_sunrisers_hyderabad.html">&larr; Back to full squad</a>
+    </div>
+  </div>
+  <a href="../ipl_2026_overview.html" class="overview-btn">
+    <span class="icon">🏠</span>
+    <span>Back to Overview</span>
+  </a>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const selects = Array.from(document.querySelectorAll(".player-select"));
+
+      function refreshOptions() {
+        const selectedValues = new Set(
+          selects.map(s => s.value).filter(v => v && v.length > 0)
+        );
+
+        selects.forEach(select => {
+          const current = select.value;
+          Array.from(select.options).forEach(opt => {
+            if (!opt.value) {
+              opt.disabled = false;
+              return;
+            }
+            if (selectedValues.has(opt.value) && opt.value !== current) {
+              opt.disabled = true;
+            } else {
+              opt.disabled = false;
+            }
+          });
+        });
+      }
+
+
+      // Add visual highlight for any dropdown with a chosen player
+      function markSelected() {
+        selects.forEach(select => {
+          if (select.value && select.value.length > 0) {
+            select.classList.add("selected");
+          } else {
+            select.classList.remove("selected");
+          }
+        });
+      }
+
+      selects.forEach(select => {
+        select.addEventListener("change", () => {
+          refreshOptions();
+          markSelected();
+        });
+      });
+
+      // Initial pass
+      markSelected();
+    
+
+      refreshOptions();
+    });
+  </script>
+</body>
+</html>
