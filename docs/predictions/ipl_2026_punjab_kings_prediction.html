@@ -13,7 +13,7 @@
       color: #ffffff;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: flex-start;
       padding: 10px 6px;
       box-sizing: border-box;
@@ -145,6 +145,52 @@
     .prob-table td:first-child {
       opacity: 0.9;
     }
+
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .bottom-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.35);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .bottom-btn .icon {
+      font-size: 0.9rem;
+    }
+    .bottom-btn:hover {
+      background: rgba(255, 211, 77, 0.18);
+    }
+
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .bottom-slot {
+      flex: 1;
+      display: flex;
+    }
+    .bottom-slot.left {
+      justify-content: flex-start;
+    }
+    .bottom-slot.right {
+      justify-content: flex-end;
+    }
 </style>
 </head>
 <body>
@@ -153,12 +199,6 @@
 <div class="title-block">
 <h1>🤖 AI Prediction – Punjab Kings</h1>
 <p class="subtitle">Squad‑based projection for IPL 2026, factoring in retentions, releases and current roles.</p>
-</div>
-<div class="nav-row">
-<a class="nav-pill" href="../">
-<span class="icon">🏠</span>
-<span>Back to Overview</span>
-</a>
 </div>
 </div>
 <div class="content-grid">
@@ -202,7 +242,7 @@
 <li>If one senior batter produces a monster season, it can drag them into contention.</li><li>A young quick finding rhythm at the death could solve a long‑standing issue.</li>
 </ul>
 </section>
-</div>
+</div><div class="bottom-bar"><div class="bottom-slot left"><a class="bottom-btn overview-btn" href="../"><span class="icon">🏠</span><span>Back to Overview</span></a></div><div class="bottom-slot center"><a class="bottom-btn squad-btn" href="../squads/ipl_2026_punjab_kings.html"><span class="icon">📋</span><span>Back to Squad</span></a></div><div class="bottom-slot right"><a class="bottom-btn playing11-btn" href="../playing11/ipl_2026_punjab_kings_playing11.html"><span class="icon">🎯</span><span>Back to Playing 11</span></a></div></div>
 </div>
 </body>
 </html>

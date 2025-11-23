@@ -246,11 +246,57 @@
       box-shadow: 0 10px 26px rgba(0,0,0,0.7);
       background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(255,255,255,0.18));
     }
+
+    .bottom-nav {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.35);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .nav-btn .icon {
+      font-size: 0.9rem;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 211, 77, 0.18);
+    }
+
+    .bottom-nav {
+      margin-top: 18px;
+      display: flex;
+      width: 100%;
+      flex-wrap: nowrap;
+    }
+    .nav-slot {
+      flex: 1;
+      display: flex;
+    }
+    .nav-slot.left {
+      justify-content: flex-start;
+    }
+    .nav-slot.center {
+      justify-content: center;
+    }
+    .nav-slot.right {
+      justify-content: flex-end;
+    }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>IPL 2026 Retentions, Releases &amp; Trades</h1><div class="ai-row"><a class="ai-pill" href="../predictions/ipl_2026_punjab_kings_prediction.html"><span class="icon">🤖</span><span>AI prediction for this team</span></a></div>
+<h1>IPL 2026 Retentions, Releases &amp; Trades</h1>
 <div class="subtitle">Squad overview</div>
 <div class="team-meta">
 <div class="team-meta-pill">Purse remaining: ₹11.50 Cr</div>
@@ -342,14 +388,6 @@
 <div class="player-list"></div>
 </div>
 </div>
-</div>
-<a class="floating-btn" href="../playing11/ipl_2026_punjab_kings_playing11.html">
-<span>Playing 11</span>
-<span class="icon">▶</span>
-</a>
-<a class="overview-btn" href="../">
-<span class="icon">🏠</span>
-<span>Back to Overview</span>
-</a>
+<div class="bottom-nav"><div class="nav-slot left"><a class="nav-btn overview-btn" href="../"><span class="icon">🏠</span><span>Overview</span></a></div><div class="nav-slot center"><a class="nav-btn prediction-btn" href="../predictions/ipl_2026_punjab_kings_prediction.html"><span class="icon">🤖</span><span>AI Prediction</span></a></div><div class="nav-slot right"><a class="nav-btn playing-btn" href="../playing11/ipl_2026_punjab_kings_playing11.html"><span class="icon">🎯</span><span>Playing 11</span></a></div></div></div>
 </body>
 </html>

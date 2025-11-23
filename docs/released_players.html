@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>IPL 2026 - Released Players</title>
-  <style>
+<meta charset="utf-8"/>
+<title>IPL 2026 - Released Players</title>
+<style>
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -173,138 +174,172 @@
       border: 1px solid rgba(255,255,255,0.28);
       opacity: 0.35;
     }
-  </style>
+  
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .bottom-slot {
+      flex: 1;
+      display: flex;
+    }
+    .bottom-slot.left {
+      justify-content: flex-start;
+    }
+    .bottom-slot.right {
+      justify-content: flex-end;
+    }
+    .bottom-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.35);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .bottom-btn .icon {
+      font-size: 0.9rem;
+    }
+    .bottom-btn:hover {
+      background: rgba(255, 211, 77, 0.18);
+    }
+</style>
 </head>
 <body>
-  <div class="page">
-    <div class="header-row">
-      <div class="title-block">
-        <h1>IPL 2026 – Released Players</h1>
-        <div class="subtitle">
+<div class="page">
+<div class="header-row">
+<div class="title-block">
+<h1>IPL 2026 – Released Players</h1>
+<div class="subtitle">
           Categorised view of all players released ahead of the IPL 2026 mega auction.
         </div>
-      </div>
-      <div class="nav-buttons">
-        <a class="nav-pill" href="./">
-          <span class="icon">🏠</span>
-          <span>Back to Overview</span>
-        </a>
-      </div>
-    </div>
+</div>
 
-    <div class="grid">
-      <div class="card batters">
-        <div class="card-header">
-          <div class="card-title">
-            <span>🟦 Batters</span>
-          </div>
-          <div class="pill">13 players</div>
-        </div>
-        <ul>
-          <li>Devon Conway</li>
-          <li>Rahul Tripathi</li>
-          <li>Shaik Rasheed</li>
-          <li>Vijay Shankar</li>
-          <li>Faf du Plessis</li>
-          <li>Jake Fraser-McGurk</li>
-          <li>Manvanth Kumar</li>
-          <li>Mahipal Lomror</li>
-          <li>Venkatesh Iyer</li>
-          <li>David Miller</li>
-          <li>Shrijith Krishnan</li>
-          <li>Mayank Agarwal</li>
-          <li>Abhinav Manohar</li>
-        </ul>
-      </div>
-
-      <div class="card keepers">
-        <div class="card-header">
-          <div class="card-title">
-            <span>🟧 Wicket-Keepers</span>
-          </div>
-          <div class="pill">6 players</div>
-        </div>
-        <ul>
-          <li>Quinton de Kock</li>
-          <li>Rahmanullah Gurbaz</li>
-          <li>Aryan Juyal</li>
-          <li>Josh Inglis</li>
-          <li>Luvnith Sisodia</li>
-          <li>Atharva Taide</li>
-        </ul>
-      </div>
-
-      <div class="card allrounders">
-        <div class="card-header">
-          <div class="card-title">
-            <span>🟩 All-Rounders</span>
-          </div>
-          <div class="pill">10 players</div>
-        </div>
-        <ul>
-          <li>Andre Siddarth</li>
-          <li>Deepak Hooda</li>
-          <li>Sam Curran</li>
-          <li>Dasun Shanaka</li>
-          <li>Karim Janat</li>
-          <li>Andre Russell</li>
-          <li>Moeen Ali</li>
-          <li>Liam Livingstone</li>
-          <li>Aaron Hardie</li>
-          <li>Wiaan Mulder</li>
-        </ul>
-      </div>
-
-      <div class="card spinners">
-        <div class="card-header">
-          <div class="card-title">
-            <span>🟪 Spinners</span>
-          </div>
-          <div class="pill">9 players</div>
-        </div>
-        <ul>
-          <li>Rahul Chahar</li>
-          <li>Wanindu Hasaranga</li>
-          <li>Kumar Kartikeya Singh</li>
-          <li>Pravin Dubey</li>
-          <li>Maheesh Theekshana</li>
-          <li>Ravi Bishnoi</li>
-          <li>Mujeeb Ur Rahman</li>
-          <li>Adam Zampa</li>
-          <li>Vignesh Puthur</li>
-        </ul>
-      </div>
-
-      <div class="card pacers">
-        <div class="card-header">
-          <div class="card-title">
-            <span>🟥 Fast Bowlers</span>
-          </div>
-          <div class="pill">19 players</div>
-        </div>
-        <ul>
-          <li>Matheesha Pathirana</li>
-          <li>Kamlesh Nagarkoti</li>
-          <li>Chetan Sakariya</li>
-          <li>Anrich Nortje</li>
-          <li>Gerald Coetzee</li>
-          <li>Kulwant Khejroliya</li>
-          <li>Spencer Johnson</li>
-          <li>Akash Deep</li>
-          <li>Rajvardhan Hangargekar</li>
-          <li>Lizaad Williams</li>
-          <li>Reece Topley</li>
-          <li>Kuldeep Sen</li>
-          <li>Akash Madhwal</li>
-          <li>Ashok Sharma</li>
-          <li>Fazalhaq Farooqi</li>
-          <li>Lungi Ngidi</li>
-          <li>Shamar Joseph</li>
-          <li>Mohit Sharma</li>
-          <li>Simarjeet Singh</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</body>
+</div>
+<div class="grid">
+<div class="card batters">
+<div class="card-header">
+<div class="card-title">
+<span>🟦 Batters</span>
+</div>
+<div class="pill">13 players</div>
+</div>
+<ul>
+<li>Devon Conway</li>
+<li>Rahul Tripathi</li>
+<li>Shaik Rasheed</li>
+<li>Vijay Shankar</li>
+<li>Faf du Plessis</li>
+<li>Jake Fraser-McGurk</li>
+<li>Manvanth Kumar</li>
+<li>Mahipal Lomror</li>
+<li>Venkatesh Iyer</li>
+<li>David Miller</li>
+<li>Shrijith Krishnan</li>
+<li>Mayank Agarwal</li>
+<li>Abhinav Manohar</li>
+</ul>
+</div>
+<div class="card keepers">
+<div class="card-header">
+<div class="card-title">
+<span>🟧 Wicket-Keepers</span>
+</div>
+<div class="pill">6 players</div>
+</div>
+<ul>
+<li>Quinton de Kock</li>
+<li>Rahmanullah Gurbaz</li>
+<li>Aryan Juyal</li>
+<li>Josh Inglis</li>
+<li>Luvnith Sisodia</li>
+<li>Atharva Taide</li>
+</ul>
+</div>
+<div class="card allrounders">
+<div class="card-header">
+<div class="card-title">
+<span>🟩 All-Rounders</span>
+</div>
+<div class="pill">10 players</div>
+</div>
+<ul>
+<li>Andre Siddarth</li>
+<li>Deepak Hooda</li>
+<li>Sam Curran</li>
+<li>Dasun Shanaka</li>
+<li>Karim Janat</li>
+<li>Andre Russell</li>
+<li>Moeen Ali</li>
+<li>Liam Livingstone</li>
+<li>Aaron Hardie</li>
+<li>Wiaan Mulder</li>
+</ul>
+</div>
+<div class="card spinners">
+<div class="card-header">
+<div class="card-title">
+<span>🟪 Spinners</span>
+</div>
+<div class="pill">9 players</div>
+</div>
+<ul>
+<li>Rahul Chahar</li>
+<li>Wanindu Hasaranga</li>
+<li>Kumar Kartikeya Singh</li>
+<li>Pravin Dubey</li>
+<li>Maheesh Theekshana</li>
+<li>Ravi Bishnoi</li>
+<li>Mujeeb Ur Rahman</li>
+<li>Adam Zampa</li>
+<li>Vignesh Puthur</li>
+</ul>
+</div>
+<div class="card pacers">
+<div class="card-header">
+<div class="card-title">
+<span>🟥 Fast Bowlers</span>
+</div>
+<div class="pill">19 players</div>
+</div>
+<ul>
+<li>Matheesha Pathirana</li>
+<li>Kamlesh Nagarkoti</li>
+<li>Chetan Sakariya</li>
+<li>Anrich Nortje</li>
+<li>Gerald Coetzee</li>
+<li>Kulwant Khejroliya</li>
+<li>Spencer Johnson</li>
+<li>Akash Deep</li>
+<li>Rajvardhan Hangargekar</li>
+<li>Lizaad Williams</li>
+<li>Reece Topley</li>
+<li>Kuldeep Sen</li>
+<li>Akash Madhwal</li>
+<li>Ashok Sharma</li>
+<li>Fazalhaq Farooqi</li>
+<li>Lungi Ngidi</li>
+<li>Shamar Joseph</li>
+<li>Mohit Sharma</li>
+<li>Simarjeet Singh</li>
+</ul>
+</div>
+</div><div class="bottom-bar"><div class="bottom-slot left"><a class="bottom-btn overview-btn" href="./"><span class="icon">🏠</span><span>Back to Overview</span></a></div><div class="bottom-slot right"><a class="bottom-btn back-btn" href="javascript:void(0);" onclick="goBackToSource();"><span class="icon">↩️</span><span>Back</span></a></div></div>
+</div>
+<script>
+    function goBackToSource() {
+      if (window.history && window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "./";
+      }
+    }
+</script></body>
 </html>

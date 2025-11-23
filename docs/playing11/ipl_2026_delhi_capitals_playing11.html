@@ -244,7 +244,126 @@
     .bottom-btn.released-btn {
       margin-left: auto;
     }
-    </style>
+    
+    /* Two-column layout for playing 11 and released players */
+    .content-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .playing-column {
+      flex: 2;
+      max-width: 420px;
+    }
+    .released-column {
+      flex: 1;
+      text-align: right;
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+    .released-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .released-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .released-list li {
+      margin-bottom: 3px;
+    }
+    @media (max-width: 700px) {
+      .content-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .released-column {
+        text-align: left;
+      }
+    }
+
+    .released-section {
+      margin-top: 16px;
+      text-align: right;
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+    .released-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .released-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .released-list li {
+      margin-bottom: 3px;
+    }
+
+    .layout-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .playing-column {
+      flex: 1;
+      min-width: 0;
+    }
+    .released-section {
+      flex: 0 0 auto;
+      text-align: right;
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+    .released-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .released-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .released-list li {
+      margin-bottom: 3px;
+    }
+
+    .bottom-bar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px 10px 12px;
+      box-sizing: border-box;
+    }
+    .bottom-slot {
+      flex: 1;
+      display: flex;
+    }
+    .bottom-slot.left {
+      justify-content: flex-start;
+    }
+    .bottom-slot.center {
+      justify-content: center;
+    }
+    .bottom-slot.right {
+      justify-content: flex-end;
+    }
+</style>
 </head>
 <body>
 <div class="container">
@@ -253,23 +372,29 @@
 <div class="team-header">
 <div class="team-logo team-logo-delhi-capitals"><span>DC</span></div>
 <div class="team-name">Team name – <span>Delhi Capitals</span></div>
-</div>
-<div class="playing-list">
+</div><div class="playing-list">
 <div class="playing-row">
 <div class="playing-row-label">1.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -280,17 +405,24 @@
 <div class="playing-row-label">2.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -301,17 +433,24 @@
 <div class="playing-row-label">3.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -322,17 +461,24 @@
 <div class="playing-row-label">4.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -343,17 +489,24 @@
 <div class="playing-row-label">5.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -364,17 +517,24 @@
 <div class="playing-row-label">6.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -385,17 +545,24 @@
 <div class="playing-row-label">7.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -406,17 +573,24 @@
 <div class="playing-row-label">8.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -427,17 +601,24 @@
 <div class="playing-row-label">9.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -448,17 +629,24 @@
 <div class="playing-row-label">10.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -469,17 +657,24 @@
 <div class="playing-row-label">11.</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -490,17 +685,24 @@
 <div class="playing-row-label">12. (Impact)</div>
 <select class="player-select">
 <option value="">Select player…</option>
+<!-- Batters -->
 <option value="Karun Nair">Karun Nair</option>
 <option value="Sameer Rizvi">Sameer Rizvi</option>
 <option value="Ashutosh Sharma">Ashutosh Sharma</option>
 <option value="Tripurana Vijay">Tripurana Vijay</option>
 <option value="Madhav Tiwari">Madhav Tiwari</option>
+<option value="Nitish Rana (T)">Nitish Rana (T)</option>
+<!-- Keepers -->
 <option value="Tristan Stubbs">Tristan Stubbs</option>
 <option value="KL Rahul">KL Rahul</option>
 <option value="Abishek Porel">Abishek Porel</option>
+<!-- All rounders -->
 <option value="Axar Patel (C)">Axar Patel (C)</option>
+<option value="Vipraj Nigam">Vipraj Nigam</option>
+<!-- Spinners -->
 <option value="Kuldeep Yadav">Kuldeep Yadav</option>
 <option value="Ajay Mandal">Ajay Mandal</option>
+<!-- Fast bowlers -->
 <option value="Mitchell Starc">Mitchell Starc</option>
 <option value="T Natarajan">T Natarajan</option>
 <option value="Mukesh Kumar">Mukesh Kumar</option>
@@ -514,8 +716,7 @@
 <div class="back-link">
 <a href="../squads/ipl_2026_delhi_capitals.html">← Back to full squad</a>
 </div>
-
-<div class="bottom-bar"><a class="bottom-btn overview-btn" href="../">🏠 Overview</a><a class="bottom-btn ai-btn" href="../predictions/ipl_2026_delhi_capitals_prediction.html">🤖 AI Prediction</a><a class="bottom-btn released-btn" href="../released_players.html">🔁 Released Players</a></div></div>
+<div class="bottom-bar"><div class="bottom-slot left"><a class="bottom-btn overview-btn" href="../">🏠 Overview</a></div><div class="bottom-slot center"><a class="bottom-btn ai-btn" href="../predictions/ipl_2026_delhi_capitals_prediction.html">🤖 AI Prediction</a></div><div class="bottom-slot right"><a class="bottom-btn released-btn" href="../released_players.html">🔁 Released Players</a></div></div></div>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       const selects = Array.from(document.querySelectorAll(".player-select"));
