@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>IPL 2026 Squads Overview</title>
+<style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top left, #6a1b9a 0, #283593 40%, #0d0221 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 12px 6px;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: linear-gradient(145deg, rgba(26, 35, 126, 0.98), rgba(123, 31, 162, 0.96));
+      border-radius: 24px;
+      padding: 14px 16px 16px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(18px);
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 2rem;
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+      opacity: 0.85;
+    }
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .team-card {
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 16px;
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4);
+    }
+    .team-link {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .team-name {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+    .team-pill-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 0.78rem;
+      margin-top: 4px;
+      gap: 4px;
+    }
+    .team-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      gap: 6px;
+    }
+    .team-pill span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffca28;
+    }
+    .team-pill.purse {
+      background: transparent;
+      border-color: rgba(255,255,255,0.18);
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+    .team-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.32);
+    }
+  
+
+    .released-btn-row {
+      margin-top: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
+    }
+    .released-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, rgba(13, 71, 161, 0.85), rgba(103, 58, 183, 0.9));
+      color: #ffffff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 8px 22px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
+    }
+    .released-pill .icon {
+      font-size: 1rem;
+    }
+    .released-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+      background: linear-gradient(135deg, rgba(21, 101, 192, 0.95), rgba(126, 87, 194, 0.95));
+    }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>IPL 2026 Squads</h1>
+<div class="subtitle">Click on a team to open its full retention, release &amp; trade sheet.</div>
+<div class="teams-grid">
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_gujarat_titans.html">
+<div class="team-name">Gujarat Titans</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹12.90 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_lucknow_super_giants.html">
+<div class="team-name">Lucknow Super Giants</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹22.95 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_delhi_capitals.html">
+<div class="team-name">Delhi Capitals</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹21.80 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_kolkata_knight_riders.html">
+<div class="team-name">Kolkata Knight Riders</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹64.30 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_chennai_super_kings.html">
+<div class="team-name">Chennai Super Kings</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹43.40 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_royal_challengers_bengaluru.html">
+<div class="team-name">Royal Challengers Bengaluru</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹16.40 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_punjab_kings.html">
+<div class="team-name">Punjab Kings</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹11.50 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_rajasthan_royals.html">
+<div class="team-name">Rajasthan Royals</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹16.05 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_mumbai_indians.html">
+<div class="team-name">Mumbai Indians</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹2.75 Cr
+            </div>
+</div>
+</a>
+</div>
+<div class="team-card">
+<a class="team-link" href="squads/ipl_2026_sunrisers_hyderabad.html">
+<div class="team-name">Sunrisers Hyderabad</div>
+<div class="team-pill-row">
+<div class="team-pill">
+<span class="dot"></span>
+<span>Open squad sheet</span>
+</div>
+<div class="team-pill purse">
+              Purse: ₹25.50 Cr
+            </div>
+</div>
+</a>
+</div>
+</div><div class="released-btn-row"><a class="released-pill" href="released_players_legacy.html"><span class="icon">🔁</span><span>View all released players</span></a></div>
+</div>
+</body>
+</html>

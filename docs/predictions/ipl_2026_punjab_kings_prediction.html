@@ -1,248 +1,99 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>AI Prediction - Punjab Kings (IPL 2026)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>AI Prediction – Punjab Kings</title>
 <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-      background: radial-gradient(circle at top left, #ef5350 0, #b71c1c 55%, #3e0000 100%);
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 10px 6px;
-      box-sizing: border-box;
-    }
-    .page {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px;
-      box-sizing: border-box;
-    }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .title-block h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-    .subtitle {
-      margin: 2px 0 0;
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-    .nav-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .nav-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 0.8rem;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
-      color: #ffffff;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 8px 20px rgba(0,0,0,0.5);
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.15s ease;
-    }
-    .nav-pill .icon {
-      font-size: 0.95rem;
-    }
-    .nav-pill:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-      background: rgba(0,0,0,0.5);
-    }
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .card {
-      background: rgba(0,0,0,0.45);
-      border-radius: 18px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.55);
-      box-sizing: border-box;
-    }
-    .card.highlight {
-      grid-column: span 3;
-      background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(255,255,255,0.08));
-    }
-    h2 {
-      margin: 0 0 6px;
-      font-size: 1rem;
-    }
-    p {
-      margin: 0 0 6px;
-      font-size: 0.85rem;
-      line-height: 1.4;
-    }
-    ul {
-      margin: 0;
-      padding-left: 16px;
-      font-size: 0.85rem;
-    }
-    li {
-      margin: 2px 0;
-    }
-    .predicted-tag {
-      margin-top: 4px;
-      font-size: 0.9rem;
-    }
-    @media (max-width: 900px) {
-      .content-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .card.highlight {
-        grid-column: span 2;
-      }
-    }
-    @media (max-width: 640px) {
-      body {
-        align-items: stretch;
-        padding: 8px 4px;
-      }
-      .page {
-        padding: 8px 4px;
-      }
-      .content-grid {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .card.highlight {
-        grid-column: span 1;
-      }
-    }
-  
-    .prob-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-    .prob-table td {
-      padding: 3px 4px;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-    .prob-table td:first-child {
-      opacity: 0.9;
-    }
-
-    .bottom-bar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      flex-wrap: wrap;
-    }
-    .bottom-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 6px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      background: rgba(0, 0, 0, 0.35);
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .bottom-btn .icon {
-      font-size: 0.9rem;
-    }
-    .bottom-btn:hover {
-      background: rgba(255, 211, 77, 0.18);
-    }
-
-    .bottom-bar {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .bottom-slot {
-      flex: 1;
-      display: flex;
-    }
-    .bottom-slot.left {
-      justify-content: flex-start;
-    }
-    .bottom-slot.right {
-      justify-content: flex-end;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@500;600&display=swap');
+:root { --accent: #ff8a80; --accent-2: #c62828; --bg: #050712; --stroke: rgba(255,255,255,0.1); --text: #e6e9ff; --muted: rgba(230,233,255,0.78); }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; background: radial-gradient(circle at 10% 18%, #ff8a8022, transparent 32%), radial-gradient(circle at 86% 12%, #c6282822, transparent 30%), #050712; color:var(--text); font-family:'Space Grotesk','Manrope',system-ui,-apple-system,'Segoe UI',sans-serif; display:flex; justify-content:center; padding:18px 12px; }
+.page { width:min(1100px,100%); background: linear-gradient(145deg, rgba(20,27,58,0.9), rgba(6,10,30,0.95)); border:1px solid var(--stroke); border-radius:24px; padding:18px 18px 20px; box-shadow:0 26px 70px rgba(0,0,0,0.55); }
+.header { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start; }
+.brand { display:flex; flex-direction:column; gap:6px; }
+.eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:12px; border:1px solid var(--stroke); background:rgba(255,255,255,0.05); text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); font-size:0.85rem; }
+.nav { display:flex; gap:8px; flex-wrap:wrap; }
+.btn { text-decoration:none; padding:8px 12px; border-radius:12px; border:1px solid var(--stroke); color:var(--text); background:rgba(255,255,255,0.05); font-weight:600; font-size:0.9rem; }
+.btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#050712; border-color:rgba(255,255,255,0.1); box-shadow:0 12px 26px rgba(0,0,0,0.35); }
+.btn:hover { transform: translateY(-1px); box-shadow:0 12px 26px rgba(0,0,0,0.35); }
+.subtitle { margin:2px 0 10px; color:var(--muted); }
+.grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:10px; margin-top:12px; }
+.card { padding:12px 12px 14px; border-radius:14px; border:1px solid var(--stroke); background:rgba(255,255,255,0.05); box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.card h3 { margin:0 0 6px; font-size:1rem; }
+.card ul { margin:0; padding-left:18px; color:var(--muted); line-height:1.5; }
+.card p { margin:0; color:var(--muted); line-height:1.5; }
+.pill-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.pill { padding:6px 10px; border-radius:10px; border:1px solid var(--stroke); background:rgba(255,255,255,0.05); font-weight:600; font-size:0.9rem; }
+.table-wrap { margin-top:10px; border:1px solid var(--stroke); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.04); box-shadow:0 12px 30px rgba(0,0,0,0.35); }
+.finish-table { width:100%; border-collapse:collapse; color:var(--text); font-size:0.9rem; }
+.finish-table th, .finish-table td { padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.08); text-align:left; }
+.finish-table th { background:rgba(255,255,255,0.06); }
+.finish-table tr:last-child td { border-bottom:none; }
 </style>
 </head>
 <body>
 <div class="page">
-<div class="header">
-<div class="title-block">
-<h1>🤖 AI Prediction – Punjab Kings</h1>
-<p class="subtitle">Squad‑based projection for IPL 2026, factoring in retentions, releases and current roles.</p>
-</div>
-</div>
-<div class="content-grid">
-<section class="card highlight">
-<h2>Season Outlook</h2>
-<p>Punjab Kings once again have plenty of individual talent and hitters, but the overall balance still feels slightly unstable. Retentions and releases suggest a continued search for the right combination rather than a settled template.</p>
-<p class="predicted-tag">AI verdict: <strong>Dangerous but inconsistent; more likely to sit in the lower half of the table unless several players peak together.</strong></p>
-</section>
-<section class="card">
-<h2>Finish Probability (Simulation)</h2>
-<table class="prob-table">
-<tbody>
-<tr><td>Top 2</td><td>8%</td></tr>
-<tr><td>3rd – 4th</td><td>15%</td></tr>
-<tr><td>5th – 6th</td><td>30%</td></tr>
-<tr><td>Bottom 4</td><td>47%</td></tr>
-</tbody>
-</table>
-</section>
-<section class="card">
-<h2>Important Players</h2>
-<ul>
-<li>Shreyas Iyer</li><li>Nehal Wadhera</li><li>Priyansh Arya</li><li>Shashank Singh</li><li>Prabhsimran Singh</li><li>Vishnu Vinod</li>
-</ul>
-</section>
-<section class="card">
-<h2>Key Strengths</h2>
-<ul>
-<li>Several high‑ceiling batters who can win games single‑handedly.</li><li>Good mix of right‑ and left‑hand options in the top order.</li><li>A couple of all‑rounders who can change games with either discipline.</li>
-</ul>
-</section>
-<section class="card">
-<h2>Risks &amp; Weak Spots</h2>
-<ul>
-<li>Lack of clarity in roles can lead to frequent batting reshuffles.</li><li>Bowling attack may struggle to defend par totals on flat pitches.</li><li>Inconsistent performances across seasons make momentum hard to sustain.</li>
-</ul>
-</section>
-<section class="card">
-<h2>X‑Factor &amp; What Must Go Right</h2>
-<ul>
-<li>If one senior batter produces a monster season, it can drag them into contention.</li><li>A young quick finding rhythm at the death could solve a long‑standing issue.</li>
-</ul>
-</section>
-</div><div class="bottom-bar"><div class="bottom-slot left"><a class="bottom-btn overview-btn" href="../"><span class="icon">🏠</span><span>Back to Overview</span></a></div><div class="bottom-slot center"><a class="bottom-btn squad-btn" href="../squads/ipl_2026_punjab_kings.html"><span class="icon">📋</span><span>Back to Squad</span></a></div><div class="bottom-slot right"><a class="bottom-btn playing11-btn" href="../playing11/ipl_2026_punjab_kings_playing11.html"><span class="icon">🎯</span><span>Back to Playing 11</span></a></div></div>
+  <div class="header">
+    <div class="brand">
+      <span class="eyebrow">AI prediction</span>
+      <h1 style="margin:0; font-size:1.8rem;">Punjab Kings</h1>
+      <div class="subtitle">Post-auction squad projection for IPL 2026 – tuned to the current roster.</div>
+    </div>
+    <div class="nav">
+      <a class="btn" href="../index.html">⬅️ Home</a>
+      <a class="btn" href="../squads/ipl_2026_punjab_kings.html">📋 Squad</a>
+      <a class="btn primary" href="../playing11/ipl_2026_punjab_kings_playing11.html">🎯 Playing 11</a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Season outlook</h3>
+      <p>Punjab Kings lean on retained chemistry with 4 auction additions and 0 trades to tweak balance.</p>
+      <div class="pill-row"><span class="pill">Bought: 4</span><span class="pill">Retained: 21</span><span class="pill">Traded in: 0</span></div>
+    </div>
+    <div class="card">
+      <h3>Key additions</h3>
+      <ul><li>Cooper Connolly (2 cr)</li><li>Ben Dwarshuis (4.40 cr)</li><li>Praveen Dubey (30 L)</li><li>Vishal Nishad (30 L)</li></ul>
+    </div>
+    <div class="card">
+      <h3>Retained spine</h3>
+      <ul><li>Prabhsimran Singh</li><li>Priyansh Arya</li><li>Shreyas Iyer</li><li>Shashank Singh</li><li>Nehal Wadhera</li><li>Marcus Stoinis</li><li>Azmatullah Omarzai</li><li>Marco Jansen</li></ul>
+    </div>
+    <div class="card">
+      <h3>SWOT – Strengths</h3>
+      <ul><li>Retained spine anchored by Prabhsimran Singh, Priyansh Arya, Shreyas Iyer</li><li>Auction buys add role coverage for powerplay, middle and death phases.</li><li>Impact Player rule boosts match-up depth across conditions.</li></ul>
+    </div>
+    <div class="card">
+      <h3>SWOT – Weaknesses</h3>
+      <ul><li>Role clarity and settling best XI after auction churn will be vital.</li><li>Death-overs consistency still a question until the new mix gels.</li><li>Over-dependence on a few senior players for stability.</li></ul>
+    </div>
+    <div class="card">
+      <h3>SWOT – Opportunities</h3>
+      <ul><li>Breakout potential from new signings like Cooper Connolly, Ben Dwarshuis</li><li>Home conditions can be maximised with Impact Player swaps.</li><li>Fresh combinations open tactical wrinkles opponents haven't prepped for.</li></ul>
+    </div>
+    <div class="card">
+      <h3>SWOT – Threats</h3>
+      <ul><li>Injuries or overseas availability could stress balance.</li><li>Tough away run could expose unsettled roles.</li><li>Net run rate swings if finishers or death bowling misfire.</li></ul>
+    </div>
+    <div class="card">
+      <h3>Match-up edges</h3>
+      <ul><li>Match-up flexibility from auction additions.</li><li>Retained chemistry offers stability.</li><li>Impact Player gives tactical cover.</li></ul>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="finish-table">
+      <thead><tr><th>Projected finish</th><th>Chance</th></tr></thead>
+      <tbody>
+        <tr><td>1-2</td><td>28%</td></tr>
+<tr><td>3-4</td><td>32%</td></tr>
+<tr><td>5-6</td><td>25%</td></tr>
+<tr><td>7-10</td><td>15%</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 </body>
 </html>

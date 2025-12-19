@@ -1,763 +1,407 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<title>Playing 11 - Lucknow Super Giants</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Playing 11 – Lucknow Super Giants</title>
 <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
-      background: radial-gradient(circle at top left, #b3e5fc 0, #03a9f4 55%, #004d40 100%);
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 8px 4px;
-      box-sizing: border-box;
-    }
-    .container {
-      max-width: 700px;
-      width: 100%;
-      background: linear-gradient(145deg, rgba(0, 172, 193, 0.98), rgba(38, 166, 154, 0.98));
-      border-radius: 24px;
-      padding: 12px 14px 14px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(18px);
-    }
-    h1 {
-      margin: 0 0 2px;
-      font-size: 1.7rem;
-      text-align: center;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .subtitle {
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 1rem;
-      opacity: 0.85;
-    }
-    .team-name {
-      text-align: center;
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .team-name span {
-      color: #ff9800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .playing-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 4px;
-    }
-    .playing-row {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 6px;
-      align-items: center;
-    }
-    .playing-row-label {
-      font-weight: 600;
-      text-align: right;
-      padding-right: 4px;
-      opacity: 0.9;
-      font-size: 0.8rem;
-    }
-    .player-select {
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      padding: 8px 10px;
-      background: rgba(3, 16, 46, 0.9);
-      font-size: 0.8rem;
-      line-height: 1.3;
-      font-family: inherit;
-      outline: none;
-      color: #ffffff;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
-    }
-    
-    .player-select.selected {
-      border: 2px solid #ffd700;
-      background: radial-gradient(circle at 0 0, rgba(255,215,0,0.28) 0, rgba(3,16,46,0.9) 40%, rgba(0,0,0,0.95) 100%);
-      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
-      transition: all 0.18s ease-out;
-    }
-    
-    .player-select option {
-      color: #000000;
-    }
-    
-    .back-link {
-      margin-top: 4px;
-      text-align: center;
-    }
-    .back-link a {
-      color: #ff9800;
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-    
-    
-    .overview-btn:hover { background: rgba(0,0,0,0.3); }
-  
-    .team-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .team-logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
-      border: 2px solid rgba(255, 255, 255, 0.85);
-    }
-    .team-logo span {
-      transform: translateY(1px);
-    }
-    .team-logo-mi        { background: radial-gradient(circle at 30% 20%, #ffd34d 0, #0052cc 55%, #001639 100%); }
-    .team-logo-chennai-super-kings       { background: radial-gradient(circle at 30% 20%, #fff59d 0, #ffb300 55%, #f57c00 100%); color:#102027; }
-    .team-logo-royal-challengers-bengaluru       { background: radial-gradient(circle at 30% 20%, #ffe082 0, #b71c1c 55%, #3e0000 100%); }
-    .team-logo-kolkata-knight-riders { background: radial-gradient(circle at 30% 20%, #ffd54f 0, #673ab7 55%, #311b92 100%); }
-    .team-logo-delhi-capitals        { background: radial-gradient(circle at 30% 20%, #ff8a80 0, #1e88e5 55%, #0d47a1 100%); }
-    .team-logo-gujarat-titans        { background: radial-gradient(circle at 30% 20%, #ffc107 0, #263238 55%, #000a12 100%); }
-    .team-logo-lucknow-super-giants  { background: radial-gradient(circle at 30% 20%, #ffecb3 0, #039be5 55%, #004d40 100%); }
-    .team-logo-punjab-kings          { background: radial-gradient(circle at 30% 20%, #ffe082 0, #c62828 55%, #4a0000 100%); }
-    .team-logo-rajasthan-royals      { background: radial-gradient(circle at 30% 20%, #ff80ab 0, #c2185b 55%, #311b92 100%); }
-    .team-logo-sunrisers-hyderabad   { background: radial-gradient(circle at 30% 20%, #ffe082 0, #ff9800 55%, #e65100 100%); color:#3e2723; }
-
-  
-    .reset-row {
-      margin-top: 4px;
-      text-align: center;
-    }
-    .reset-btn {
-      margin-top: 4px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      background: rgba(0, 0, 0, 0.35);
-      color: #ffffff;
-      font-size: 0.85rem;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .reset-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-  
-
-    
-    
-    
-    .released-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75);
-      background: linear-gradient(135deg, rgba(21, 101, 192, 0.98), rgba(126, 87, 194, 0.98));
-    }
-
-    
-    
-    
-    .ai-link-pill:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.8);
-      background: rgba(0,0,0,0.75);
-    }
-
-    @media (max-width: 640px) {
-      
-    }
- 
-    
-    
-    .top-btn:hover, .overview-btn:hover{
-        background:rgba(0,0,0,0.75);
-    }
-     
-    
-    
-    .bottom-btn:hover {
-        background:rgba(255,211,77,0.15);
-    }
-    
-    .bottom-bar {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: 10px 10px 12px;
-      box-sizing: border-box;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .bottom-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: #ffffff;
-      border: 1px solid #ffd34d;
-      background: transparent;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
-    }
-    .bottom-btn:hover {
-      background: rgba(255, 211, 77, 0.18);
-      box-shadow: 0 0 0 1px rgba(255,211,77,0.18), 0 8px 20px rgba(0,0,0,0.6);
-      transform: translateY(-1px);
-    }
-    .bottom-btn.overview-btn {
-      margin-right: auto;
-    }
-    .bottom-btn.ai-btn {
-      margin: 0 auto;
-    }
-    .bottom-btn.released-btn {
-      margin-left: auto;
-    }
-    
-    /* Two-column layout for playing 11 and released players */
-    .content-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      margin-top: 8px;
-    }
-    .playing-column {
-      flex: 2;
-      max-width: 420px;
-    }
-    .released-column {
-      flex: 1;
-      text-align: right;
-      font-size: 0.8rem;
-      opacity: 0.92;
-    }
-    .released-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .released-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .released-list li {
-      margin-bottom: 3px;
-    }
-    @media (max-width: 700px) {
-      .content-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .released-column {
-        text-align: left;
-      }
-    }
-
-    .released-section {
-      margin-top: 16px;
-      text-align: right;
-      font-size: 0.8rem;
-      opacity: 0.92;
-    }
-    .released-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .released-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .released-list li {
-      margin-bottom: 3px;
-    }
-
-    .layout-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .playing-column {
-      flex: 1;
-      min-width: 0;
-    }
-    .released-section {
-      flex: 0 0 auto;
-      text-align: right;
-      font-size: 0.8rem;
-      opacity: 0.92;
-    }
-    .released-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .released-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .released-list li {
-      margin-bottom: 3px;
-    }
-
-    .bottom-bar {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: 10px 10px 12px;
-      box-sizing: border-box;
-    }
-    .bottom-slot {
-      flex: 1;
-      display: flex;
-    }
-    .bottom-slot.left {
-      justify-content: flex-start;
-    }
-    .bottom-slot.center {
-      justify-content: center;
-    }
-    .bottom-slot.right {
-      justify-content: flex-end;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@500;600&display=swap');
+:root { --accent: #7ef0d0; --accent-2: #00695c; --bg: #050712; --stroke: rgba(255,255,255,0.1); --text: #e6e9ff; --muted: rgba(230,233,255,0.78); }
+* { box-sizing: border-box; }
+body { margin:0; min-height:100vh; background: radial-gradient(circle at 18% 18%, #7ef0d022, transparent 32%), radial-gradient(circle at 82% 12%, #00695c22, transparent 30%), #050712; color:var(--text); font-family:'Space Grotesk','Manrope',system-ui,-apple-system,'Segoe UI',sans-serif; display:flex; justify-content:center; padding:14px 10px; }
+.page { width:min(900px,100%); background: linear-gradient(145deg, rgba(20,27,58,0.9), rgba(6,10,30,0.95)); border:1px solid var(--stroke); border-radius:20px; padding:14px 14px 16px; box-shadow:0 24px 60px rgba(0,0,0,0.5); display:flex; flex-direction:column; gap:12px; }
+.header { display:flex; flex-direction:column; gap:6px; }
+.eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:12px; border:1px solid var(--stroke); background:rgba(255,255,255,0.05); text-transform:uppercase; letter-spacing:0.06em; color:var(--accent); font-size:0.85rem; width:fit-content; }
+.title-row { display:flex; align-items:flex-end; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+.subtitle { margin:2px 0 6px; color:var(--muted); font-size:0.95rem; }
+.form { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:10px; }
+.slot { padding:10px 10px 12px; border-radius:14px; border:1px solid var(--stroke); background:rgba(255,255,255,0.05); box-shadow:0 8px 18px rgba(0,0,0,0.35); }
+.slot .label { font-weight:700; letter-spacing:0.04em; margin-bottom:6px; font-size:0.9rem; color:var(--muted); }
+select { width:100%; border-radius:12px; border:1px solid var(--stroke); background:rgba(255,255,255,0.06); color:var(--text); padding:8px 10px; font-size:0.92rem; font-family:inherit; outline:none; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.3); }
+select.selected { border:2px solid var(--accent); box-shadow:0 0 0 1px rgba(77,227,255,0.25); background:radial-gradient(circle at 0 0, rgba(77,227,255,0.12), rgba(255,255,255,0.04)); }
+.actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:space-between; align-items:center; margin-top:4px; }
+.btn { text-decoration:none; padding:8px 12px; border-radius:12px; border:1px solid var(--stroke); color:var(--text); background:rgba(255,255,255,0.06); font-weight:700; font-size:0.9rem; }
+.btn.primary { background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#050712; border-color:rgba(255,255,255,0.1); box-shadow:0 10px 22px rgba(0,0,0,0.35); }
+.btn:hover { transform: translateY(-1px); box-shadow:0 10px 22px rgba(0,0,0,0.35); }
+.reset-btn { padding:8px 12px; border-radius:12px; border:1px solid var(--stroke); background:rgba(255,255,255,0.06); color:var(--text); font-weight:700; letter-spacing:0.04em; cursor:pointer; }
+.reset-btn:hover { background:rgba(255,255,255,0.1); }
+.footer-note { font-size:0.82rem; color:var(--muted); text-align:right; margin-top:2px; }
+@media(max-width:640px) { body { padding:12px 8px; } .form { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); } }
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Playing 11</h1>
-<div class="subtitle">Match line-up sheet</div>
-<div class="team-header">
-<div class="team-logo team-logo-lucknow-super-giants"><span>LSG</span></div>
-<div class="team-name">Team name – <span>Lucknow Super Giants</span></div>
-</div><div class="playing-list">
-<div class="playing-row">
-<div class="playing-row-label">1.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<div class="page">
+  <div class="header">
+    <span class="eyebrow">Playing 11 + Impact</span>
+    <div class="title-row">
+      <h1 style="margin:0; font-size:1.5rem;">Lucknow Super Giants</h1>
+      <div class="subtitle">Pick XI + Impact from the post-auction squad.</div>
+    </div>
+  </div>
+
+  <div class="form">
+    <div class=\"slot\"><div class=\"label\">1.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">2.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">2.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">3.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">3.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">4.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">4.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">5.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">5.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">6.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">6.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">7.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">7.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">8.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">8.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">9.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">9.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">10.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">10.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">11.</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">11.</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
-</div>
-<div class="playing-row">
-<div class="playing-row-label">12. (Impact)</div>
-<select class="player-select">
-<option value="">Select player…</option>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+<div class=\"slot\"><div class=\"label\">12. Impact</div><select><option value="">Select player…</option>
 <option value="Abdul Samad">Abdul Samad</option>
 <option value="Ayush Badoni">Ayush Badoni</option>
 <option value="Aiden Markram">Aiden Markram</option>
 <option value="Matthew Breetzke">Matthew Breetzke</option>
 <option value="Himmat Singh">Himmat Singh</option>
-<option value="Prince Yadav">Prince Yadav</option>
-<option value="Rishabh Pant (C)">Rishabh Pant (C)</option>
+<option value="Rishabh Pant (c)">Rishabh Pant (c)</option>
 <option value="Nicholas Pooran">Nicholas Pooran</option>
 <option value="Mitchell Marsh">Mitchell Marsh</option>
 <option value="Shahbaz Ahmed">Shahbaz Ahmed</option>
 <option value="Arshin Kulkarni">Arshin Kulkarni</option>
-<option value="M Siddharth">M Siddharth</option>
 <option value="Mayank Yadav">Mayank Yadav</option>
 <option value="Avesh Khan">Avesh Khan</option>
 <option value="Mohsin Khan">Mohsin Khan</option>
+<option value="Manimaran Siddharth">Manimaran Siddharth</option>
+<option value="Digvesh Rathi">Digvesh Rathi</option>
+<option value="Prince Yadav">Prince Yadav</option>
 <option value="Akash Singh">Akash Singh</option>
-<option value="Mohammed Shami (T)">Mohammed Shami (T)</option>
-<option value="Arjun Tendulkar (T)">Arjun Tendulkar (T)</option>
-<option value="Digvesh Rathi">Digvesh Rathi</option><option value="Prince Yadav">Prince Yadav</option></select>
+<option value="Mohammed Shami (from SRH)">Mohammed Shami (from SRH)</option>
+<option value="Arjun Tendulkar (from MI)">Arjun Tendulkar (from MI)</option>
+<option value="Josh Inglis">Josh Inglis</option>
+<option value="Mukul Choudhary">Mukul Choudhary</option>
+<option value="Akshat Raghuwanshi">Akshat Raghuwanshi</option>
+<option value="Anrich Nortje">Anrich Nortje</option>
+<option value="Wanindu Hasaranga">Wanindu Hasaranga</option>
+<option value="Naman Tiwari">Naman Tiwari</option></select></div>
+  </div>
+
+  <div class="actions">
+    <button class="reset-btn" type="button">Reset selections</button>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a class="btn" href="../index.html">⬅️ Home</a>
+      <a class="btn" href="../squads/ipl_2026_lucknow_super_giants.html">📋 Squad</a>
+      <a class="btn primary" href="../predictions/ipl_2026_lucknow_super_giants_prediction.html">🤖 AI Prediction</a>
+    </div>
+  </div>
+  <div class="footer-note">Selections save locally on this device.</div>
 </div>
-</div>
-<div class="reset-row">
-<button class="reset-btn" type="button">Reset selections</button>
-</div>
-<div class="back-link">
-<a href="../squads/ipl_2026_lucknow_super_giants.html">← Back to full squad</a>
-</div>
-<div class="bottom-bar"><div class="bottom-slot left"><a class="bottom-btn overview-btn" href="../">🏠 Overview</a></div><div class="bottom-slot center"><a class="bottom-btn ai-btn" href="../predictions/ipl_2026_lucknow_super_giants_prediction.html">🤖 AI Prediction</a></div><div class="bottom-slot right"><a class="bottom-btn released-btn" href="../released_players.html">🔁 Released Players</a></div></div></div>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const selects = Array.from(document.querySelectorAll(".player-select"));
-
-      function refreshOptions() {
-        const selectedValues = new Set(
-          selects.map(s => s.value).filter(v => v && v.length > 0)
-        );
-
-        selects.forEach(select => {
-          const current = select.value;
-          Array.from(select.options).forEach(opt => {
-            if (!opt.value) {
-              opt.disabled = false;
-              return;
-            }
-            if (selectedValues.has(opt.value) && opt.value !== current) {
-              opt.disabled = true;
-            } else {
-              opt.disabled = false;
-            }
-          });
+  document.addEventListener('DOMContentLoaded', () => {
+    const selects = Array.from(document.querySelectorAll('select'));
+    const STORAGE_KEY = 'ipl2026_postauction_' + (window.location.pathname.split('/').pop() || '');
+    function refresh() {
+      const selected = new Set(selects.map(s => s.value).filter(Boolean));
+      selects.forEach(sel => {
+        const current = sel.value;
+        Array.from(sel.options).forEach(opt => {
+          if (!opt.value) { opt.disabled = false; return; }
+          opt.disabled = selected.has(opt.value) && opt.value !== current;
         });
-      }
-
-      function markSelected() {
-        selects.forEach(select => {
-          if (select.value && select.value.length > 0) {
-            select.classList.add("selected");
-          } else {
-            select.classList.remove("selected");
-          }
-        });
-      }
-
-      const STORAGE_KEY = "ipl2026_playing11_" + (window.location.pathname.split("/").pop() || "");
-
-      function saveState() {
-        const values = selects.map(s => s.value || "");
-        try {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(values));
-        } catch (e) {
-          // ignore
-        }
-      }
-
-      function loadState() {
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) return;
-          const values = JSON.parse(raw);
-          if (!Array.isArray(values)) return;
-          selects.forEach((select, idx) => {
-            if (values[idx]) {
-              select.value = values[idx];
-            }
-          });
-        } catch (e) {
-          // ignore
-        }
-      }
-
-      // load any saved selections, then apply uniqueness + highlight
-      loadState();
-      refreshOptions();
-      markSelected();
-
-      selects.forEach(select => {
-        select.addEventListener("change", () => {
-          refreshOptions();
-          markSelected();
-          saveState();
-        });
+        sel.classList.toggle('selected', Boolean(sel.value));
       });
-
-      const resetBtn = document.querySelector(".reset-btn");
-      if (resetBtn) {
-        resetBtn.addEventListener("click", () => {
-          selects.forEach(select => {
-            select.value = "";
-          });
-          try {
-            localStorage.removeItem(STORAGE_KEY);
-          } catch (e) {}
-          refreshOptions();
-          markSelected();
-        });
-      }
+    }
+    function save() {
+      const vals = selects.map(s => s.value || '');
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(vals)); } catch(e) {}
+    }
+    function load() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const vals = JSON.parse(raw);
+        if (!Array.isArray(vals)) return;
+        selects.forEach((s,i) => { if (vals[i]) s.value = vals[i]; });
+      } catch(e) {}
+    }
+    load();
+    refresh();
+    selects.forEach(sel => sel.addEventListener('change', () => { refresh(); save(); }));
+    const resetBtn = document.querySelector('.reset-btn');
+    resetBtn?.addEventListener('click', () => {
+      selects.forEach(sel => sel.value = '');
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+      refresh();
     });
-  </script>
+  });
+</script>
 </body>
 </html>
